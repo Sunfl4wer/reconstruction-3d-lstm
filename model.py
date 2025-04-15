@@ -150,5 +150,5 @@ def init_model(input_dim, output_dim):
 def optimizer(model):
     return optim.Adam(model.parameters())
 
-def criterion():
-    return nn.CrossEntropyLoss(ignore_index=const.PAD_INDEX)
+def criterion(pad_index):
+    return nn.CrossEntropyLoss(ignore_index=pad_index)

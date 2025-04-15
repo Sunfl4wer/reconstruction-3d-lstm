@@ -17,8 +17,8 @@ ENCODING_2D = {
     "1111" : "P"
 }
 
-IMAGE_DIRECTORY = "microCT-multiview-100"
-VOXEL_DIRECTORY = "microCT-voxel-filled"
+IMAGE_DIRECTORY = "microCT-multiview-100/microCT-multiview"
+VOXEL_DIRECTORY = "microCT-voxel-filled/microCT-voxel"
 
 
 SOS_TOKEN = "<sos>"
@@ -26,6 +26,7 @@ EOS_TOKEN = "<eos>"
 MIN_FREQ = 2
 UNK_TOKEN = "<unk>"
 PAD_TOKEN = "<pad>"
+PAD_INDEX = 1
 
 SPECIAL_TOKENS = [
     UNK_TOKEN,
