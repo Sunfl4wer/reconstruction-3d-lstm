@@ -15,12 +15,13 @@ torch.manual_seed(seed)
 torch.cuda.manual_seed(seed)
 torch.backends.cudnn.deterministic = True
 
-n_epochs = 10
+n_epochs = 100
 clip = 1.0
 teacher_forcing_ratio = 0.5
+data_percentage = 0.3
 
 best_valid_loss = float("inf")
-objects, image_vocab, voxel_vocab, train_data_loader, valid_data_loader, test_data_loader = preprocess_data.preprocess_data()
+objects, image_vocab, voxel_vocab, train_data_loader, valid_data_loader, test_data_loader = preprocess_data.preprocess_data(data_percentage)
 model = m.init_model(len(image_vocab), len(voxel_vocab))
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Training model with device: ", device)
