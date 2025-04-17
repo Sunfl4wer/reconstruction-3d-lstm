@@ -88,14 +88,19 @@ class CustomDataset(Dataset):
     
 
 def build_vocab(train_data):
+    image_tokens = np.asarray([])
+    voxel_tokens = np.asarray([])
+    for v in train_data:
+        image_tokens = np.append(image_tokens, v["image_tokens"])
+        voxel_tokens = np.append(image_tokens, v["voxel_tokens"])
     image_vocab = Vocab(
-        np.asarray([v["image_tokens"] for v in train_data]),
+        image_tokens,
         min_frequency=const.MIN_FREQ,
         specials=const.SPECIAL_TOKENS,
     )
 
     voxel_vocab = Vocab(
-        np.asarray([v["voxel_tokens"] for v in train_data]),
+        voxel_tokens,
         min_frequency=const.MIN_FREQ,
         specials=const.SPECIAL_TOKENS,
     )

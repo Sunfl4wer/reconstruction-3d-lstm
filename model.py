@@ -117,9 +117,9 @@ def count_parameters(model):
 
     
 def init_model(input_dim, output_dim):
-    encoder_embedding_dim = 8
-    decoder_embedding_dim = 8
-    hidden_dim = 16
+    encoder_embedding_dim = 16
+    decoder_embedding_dim = 16
+    hidden_dim = 32
     n_layers = 2
     encoder_dropout = 0.5
     decoder_dropout = 0.5

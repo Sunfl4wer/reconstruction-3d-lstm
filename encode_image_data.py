@@ -2,6 +2,7 @@ from PIL import Image
 import os
 import const
 import numpy as np
+import compress
 
 def slide_window(image, window_size, stride):
   """Slides a window over an image.
@@ -67,7 +68,8 @@ def encode_image(image, window_size=(2,2), stride=1):
     windows = slide_window(image, window_size, stride)
     bit_str_arr = [flatten_and_convert_to_string(window) for window in windows]
     encoded_image = "".join([const.ENCODING_2D[bit_str] for bit_str in bit_str_arr])
-    return encoded_image
+    compressed_image = compress.compress_string(encoded_image)
+    return compressed_image
 
 
 def encode_image_objects(objects):

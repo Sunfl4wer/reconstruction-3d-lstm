@@ -1,5 +1,6 @@
 import numpy as np
 import const
+import compress
 
 def slide_window_3d(matrix, window_size=(2, 2, 2)):
     """Slides a window over a 3D matrix and returns the windowed views.
@@ -45,7 +46,8 @@ def get_encoded_data_from_8bit(bit_array):
 def encode_voxel_data(arr_3d):
     windows = [w.flatten() for w in slide_window_3d(arr_3d, window_size=(2, 2, 2))]
     encoded_voxel = "".join([str(get_encoded_data_from_8bit(w)) for w in windows])
-    return encoded_voxel
+    compressed_image = compress.compress_string(encoded_voxel)
+    return compressed_image
 
 
 def read_voxel_data(f):
