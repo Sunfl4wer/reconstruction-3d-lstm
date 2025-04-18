@@ -18,7 +18,7 @@ torch.backends.cudnn.deterministic = True
 n_epochs = 100
 clip = 1.0
 teacher_forcing_ratio = 0.5
-data_percentage = 0.3
+data_percentage = 1.0
 
 best_valid_loss = float("inf")
 objects, image_vocab, voxel_vocab, train_data_loader, valid_data_loader, test_data_loader = preprocess_data.preprocess_data(data_percentage)
